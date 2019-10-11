@@ -36,23 +36,29 @@
             ></path>
           </svg>
         </h1>
-        <form class="c-card" action="#">
+        <form class="c-card" onsubmit="return validate();">
           <div class="c-card__body">
             <h2 class="c-card__title">
               Sign in to your account
             </h2>
             <p class="c-form-field">
-              <label class="c-label" for="username">
-                Email address
-              </label>
-              <input class="c-input" type="email" name="username" id="username" placeholder="e.g. john@doe.com" required />
+              <span class="c-labels">
+                <label class="c-label " for="username">
+                  Email address
+                </label>
+                <label class="c-label js-message__email"></label>
+              </span>
+              <input class="c-input" type="text" name="username" id="username" placeholder="e.g. john@doe.com" />
             </p>
-            <p class="c-form-field">
-              <label class="c-label" for="password">
-                Password
-              </label>
+            <p class="c-form-field2">
+              <span class="c-labels">
+                <label class="c-label" for="password">
+                  Password
+                </label>
+                <label class="c-label js-message__pass"></label>
+              </span>
               <span class="c-password-toggle-container">
-                <input class="c-input c-input-password has-error" type="password" name="password" id="password" required />
+                <input class="c-input c-input-password" type="password" name="password" id="password" />
                 <span class="c-password-toggle">
                   <input class="o-hide-accessible c-input-password-eye " id="togglePasswordCheckbox" type="checkbox" />
                   <label class="c-toggle-password" for="togglePasswordCheckbox">

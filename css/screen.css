@@ -39,6 +39,10 @@
   --global-color-neutral-xxx-dark: #35374d;
   --global-color-neutral-xxxx-dark: #20223a;
 
+  --global-color-error: #ff3333;
+  --global-input-error-borderColor: #ff3333;
+  --gloabl-error-shadow: 0 0 0 3px #ff333348;
+
   /* global page settings */
   --global-html-color: var(--global-color-neutral-xxxx-dark);
   --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
@@ -635,13 +639,13 @@ input::placeholder {
 }
 
 .c-input:hover {
-  border-color: var(--global-input-hover-borderColor);
+  border-color: var(--global-input-hover-border-error, var(--global-input-hover-borderColor));
 }
 
 .c-input:focus,
 .c-input:active {
-  border-color: var(--global-input-focus-borderColor);
-  box-shadow: var(--global-input-focus-boxShadow);
+  border-color: var(--global-input-borderColor, var(--global-input-focus-borderColor));
+  box-shadow: var(--error-focus-shadow, var(--global-input-focus-boxShadow));
 }
 
 /*
@@ -666,7 +670,6 @@ more padding on the right to avoid overlap
 */
 
 .c-label {
-  --label-color: var(--global-color-neutral-xx-dark);
   margin-bottom: 0;
   padding-bottom: var(--global-whitespace-sm);
   font-size: 14px;
@@ -969,10 +972,17 @@ more padding on the right to avoid overlap
 .c-input-password-eye:checked + .c-toggle-password .c-custom-symbol-eye-show {
   display: block;
 }
+
 /* error tonen */
+.c-labels {
+  display: flex;
+  justify-content: space-between;
+}
 .has-error {
   --label-color: var(--global-color-error);
-  --input-borderColor: var(--global-input-error-borderColor);
+  --global-input-borderColor: var(--global-input-error-borderColor);
+  --global-input-hover-border-error: var(--global-input-error-borderColor);
+  --error-focus-shadow: var(--gloabl-error-shadow);
 }
 /*------------------------------------*\
 #UTILITIES
