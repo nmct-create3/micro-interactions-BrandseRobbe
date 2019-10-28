@@ -676,6 +676,27 @@ more padding on the right to avoid overlap
   line-height: 16px;
   color: var(--label-color, var(--global-color-neutral-xx-dark));
 }
+.c-form-field,
+.c-form-field2 {
+  position: relative;
+}
+.c-label-type {
+  position: absolute;
+  bottom: 8px;
+  transform: translatex(8px);
+  padding: 8px 4px;
+  background-color: white;
+  transition: ease-in-out 0.3s;
+}
+.c-label-type:invalid {
+  bottom: 8px;
+}
+
+.c-input:focus + .c-label,
+.c-input[value] + .c-label {
+  bottom: 34px;
+  transition: ease-in-out 0.3s;
+}
 
 .c-label--option {
   padding-bottom: 0;
@@ -976,7 +997,7 @@ more padding on the right to avoid overlap
 /* error tonen */
 .c-labels {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .has-error {
   --label-color: var(--global-color-error);
